@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤소연 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hamburger {
+            display: none;
+        }
+        .nav-menu {
+            display: flex;
+        }
+        .info-title{
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem;
+        }
+        @keyframes dropDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .drop-animation {
+            animation: dropDown 1s ease forwards;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-10">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold">YSY's Portfolio</div>
+        <div class="hamburger md:hidden cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </div>
+        <ul class="nav-menu space-x-6 md:flex items-center">
+            <li><a href="#about" class="hover:text-blue-600">About Me</a></li>
+            <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+            <li><a href="#archiving" class="hover:text-blue-600">Archiving</a></li>
+            <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!--소개 section-->
+<section id="intro" class="relative bg-[url('./images/1.jpg')] bg-cover bg-no-repeat bg-center max-h-[1000px] w-full flex items-center justify-center">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative text-center p-8">
+        <h1 class="info-title text-white drop-animation">
+            윤소연<br/>
+            풀스택 개발자 포트폴리오
+        </h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto my-8 drop-animation" ></div>
+        <p class="text-lg text-white mb-8 leading-loose max-w-2xl drop-animation" style="animation-delay: 0.6s;">
+            안녕하세요!<br/>
+            새로운 기술을 배우고 문제를 해결하는 걸 좋아하는 개발자 윤소연입니다.<br/>
+            사람들에게 편리함과 즐거움, 더 나은 경험을 선물할 수 있는<br/>
+            개발자가 되기 위해 늘 배우고 도전하고 있습니다.
+        </p>
+    </div>
+</section>
+
+
+<!-- About Me Section -->
+<section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
+
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Archiving Section -->
+<section id="archiving" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Archiving</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">GitHub</h3>
+                <p class="text-gray-600">: <a href="" class="text-blue-600 hover:underline">소연깃허브</a></p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Notion</h3>
+                <p class="text-gray-600">: <a href="" class="text-blue-600 hover:underline">소연노션</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Project 1</h3>
+                <p class="text-gray-600 mb-4">프로젝트 설명: 미니프로젝트</p>
+                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Project 2</h3>
+                <p class="text-gray-600 mb-4">프로젝트 설명: 데이터 분석 대시보드...</p>
+                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Project 3</h3>
+                <p class="text-gray-600 mb-4">프로젝트 설명: 모바일 친화적 UI...</p>
+                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
