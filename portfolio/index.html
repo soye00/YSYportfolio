@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>윤소연 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         .hamburger {
             display: none;
@@ -48,6 +49,10 @@
                 background-color: white;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
+            .info-title{
+                font-size: 2rem;
+            }
+
         }
     </style>
 </head>
@@ -90,31 +95,85 @@
 
 
 <!-- About Me Section -->
-<section id="about" class="py-16 bg-white">
+<<section id="about" class="py-16 bg-white">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
-
+        <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 이름 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">👩🏻</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">이름</h3>
+                        <p class="text-gray-600">윤소연</p>
+                    </div>
+                </div>
+                <!-- 생년월일 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">📅</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">생년월일</h3>
+                        <p class="text-gray-600">YYYY-MM-DD</p>
+                    </div>
+                </div>
+                <!-- 위치 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">🎯</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">위치</h3>
+                        <p class="text-gray-600">서울, 대한민국</p>
+                    </div>
+                </div>
+                <!-- 연락처 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">📱</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">연락처</h3>
+                        <p class="text-gray-600">+82-XXX-XXX-XXXX</p>
+                    </div>
+                </div>
+                <!-- 이메일 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">📧</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">이메일</h3>
+                        <p class="text-gray-600">example@email.com</p>
+                    </div>
+                </div>
+                <!-- 학력 -->
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-xl">🎓</h3>
+                    <div>
+                        <h3 class="text-lg font-semibold">학력</h3>
+                        <p class="text-gray-600">XX대학교 컴퓨터공학과 (YYYY-YYYY)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Skills Section -->
-<section id="skills" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
-                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
-                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-2">Frontend</h3>
-                <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
-            </div>
 
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12 text-center">Skills</h2>
+        <h2 class="text-2xl font-bold mb-12 text-center">What I've Used</h2>
+        <div class="flex flex-wrap justify-center gap-4 space-y-4">
+            <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg text-base hover:bg-yellow-600 w-auto min-w-0">JavaScript</button>
+            <button class="bg-green-600 text-white px-6 py-3 rounded-lg text-base hover:bg-green-700 w-auto min-w-0">HTML</button>
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg text-base hover:bg-blue-700 w-auto min-w-0">CSS</button>
+            <button class="bg-green-400 text-white px-6 py-3 rounded-lg text-base hover:bg-green-500 w-auto min-w-0">Node.js</button>
+            <button class="bg-gray-500 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-600 w-auto min-w-0">Express.js</button>
+            <button class="bg-cyan-500 text-white px-6 py-3 rounded-lg text-base hover:bg-cyan-600 w-auto min-w-0">Tailwind CSS</button>
+            <button class="bg-green-500 text-white px-6 py-3 rounded-lg text-base hover:bg-green-600 w-auto min-w-0">Supabase</button>
+            <button class="bg-black text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">Vercel</button>
+            <button class="bg-purple-400 text-white px-6 py-3 rounded-lg text-base hover:bg-purple-500 w-auto min-w-0">Bootstrap</button>
+            <button class="bg-gray-400 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-500 w-auto min-w-0">jQuery</button>
+            <button class="bg-blue-300 text-white px-6 py-3 rounded-lg text-base hover:bg-blue-400 w-auto min-w-0">MySQL</button>
+            <button class="bg-black text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">GitHub</button>
+            <button class="bg-gray-700 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-900 w-auto min-w-0">Notion</button>
+            <button class="bg-orange-400 text-white px-6 py-3 rounded-lg text-base hover:bg-orange-500 w-auto min-w-0">Figma</button>
         </div>
     </div>
 </section>
