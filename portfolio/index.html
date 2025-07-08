@@ -5,68 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>윤소연 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        .hamburger {
+        /* 모달 스타일 */
+        .modal {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
         }
-        .nav-menu {
-            display: flex;
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
         }
-        .info-title{
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem;
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        @keyframes dropDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
-
-        .drop-animation {
-            animation: dropDown 1s ease forwards;
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
         }
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
+            .modal-content {
+                max-width: 95%;
+                padding: 1.5rem;
             }
-            .nav-menu {
-                display: none;
+            .project-img {
+                height: 150px;
             }
-            .nav-menu.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                right: 0;
-                background-color: white;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            .info-title{
-                font-size: 2rem;
-            }
-
         }
     </style>
 </head>
+
 <body class="font-sans bg-gray-100">
 <!-- Header -->
 <header class="bg-white shadow-md sticky top-0 z-10">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold">YSY's Portfolio</div>
+        <div class="text2xl font-bold">YSY's Portfolio</div>
         <div class="hamburger md:hidden cursor-pointer">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
         </div>
-        <ul class="nav-menu space-x-6 md:flex items-center">
+        <ul class="nav-menu space-x-6 md:flex items-center hidden">
             <li><a href="#about" class="hover:text-blue-600">About Me</a></li>
             <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
             <li><a href="#archiving" class="hover:text-blue-600">Archiving</a></li>
@@ -84,7 +93,7 @@
             풀스택 개발자 포트폴리오
         </h1>
         <div class="w-24 h-1 bg-blue-500 mx-auto my-8 drop-animation" ></div>
-        <p class="text-lg text-white mb-8 leading-loose max-w-2xl drop-animation" style="animation-delay: 0.6s;">
+        <p class="info-txt text-lg text-white mb-8 leading-loose max-w-2xl drop-animation" style="animation-delay: 0.6s;">
             안녕하세요!<br/>
             새로운 기술을 배우고 문제를 해결하는 걸 좋아하는 개발자 윤소연입니다.<br/>
             사람들에게 편리함과 즐거움, 더 나은 경험을 선물할 수 있는<br/>
@@ -95,7 +104,7 @@
 
 
 <!-- About Me Section -->
-<<section id="about" class="py-16 bg-white">
+<section id="about" class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
         <div class="max-w-4xl mx-auto">
@@ -113,7 +122,7 @@
                     <h3 class="text-xl">📅</h3>
                     <div>
                         <h3 class="text-lg font-semibold">생년월일</h3>
-                        <p class="text-gray-600">YYYY-MM-DD</p>
+                        <p class="text-gray-600">1997-03-16</p>
                     </div>
                 </div>
                 <!-- 위치 -->
@@ -121,7 +130,7 @@
                     <h3 class="text-xl">🎯</h3>
                     <div>
                         <h3 class="text-lg font-semibold">위치</h3>
-                        <p class="text-gray-600">서울, 대한민국</p>
+                        <p class="text-gray-600">대구, 대한민국</p>
                     </div>
                 </div>
                 <!-- 연락처 -->
@@ -129,7 +138,7 @@
                     <h3 class="text-xl">📱</h3>
                     <div>
                         <h3 class="text-lg font-semibold">연락처</h3>
-                        <p class="text-gray-600">+82-XXX-XXX-XXXX</p>
+                        <p class="text-gray-600">+82-010-5223-7931</p>
                     </div>
                 </div>
                 <!-- 이메일 -->
@@ -137,7 +146,7 @@
                     <h3 class="text-xl">📧</h3>
                     <div>
                         <h3 class="text-lg font-semibold">이메일</h3>
-                        <p class="text-gray-600">example@email.com</p>
+                        <p class="text-gray-600">ssssssy0@naver.com</p>
                     </div>
                 </div>
                 <!-- 학력 -->
@@ -145,7 +154,7 @@
                     <h3 class="text-xl">🎓</h3>
                     <div>
                         <h3 class="text-lg font-semibold">학력</h3>
-                        <p class="text-gray-600">XX대학교 컴퓨터공학과 (YYYY-YYYY)</p>
+                        <p class="text-gray-600">영남대학교 (독일언어문화전공)</p>
                     </div>
                 </div>
             </div>
@@ -160,20 +169,21 @@
         <h2 class="text-3xl font-bold mb-12 text-center">Skills</h2>
         <h2 class="text-2xl font-bold mb-12 text-center">What I've Used</h2>
         <div class="flex flex-wrap justify-center gap-4 space-y-4">
-            <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg text-base hover:bg-yellow-600 w-auto min-w-0">JavaScript</button>
-            <button class="bg-green-600 text-white px-6 py-3 rounded-lg text-base hover:bg-green-700 w-auto min-w-0">HTML</button>
-            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg text-base hover:bg-blue-700 w-auto min-w-0">CSS</button>
-            <button class="bg-green-400 text-white px-6 py-3 rounded-lg text-base hover:bg-green-500 w-auto min-w-0">Node.js</button>
-            <button class="bg-gray-500 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-600 w-auto min-w-0">Express.js</button>
-            <button class="bg-cyan-500 text-white px-6 py-3 rounded-lg text-base hover:bg-cyan-600 w-auto min-w-0">Tailwind CSS</button>
-            <button class="bg-green-500 text-white px-6 py-3 rounded-lg text-base hover:bg-green-600 w-auto min-w-0">Supabase</button>
-            <button class="bg-black text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">Vercel</button>
-            <button class="bg-purple-400 text-white px-6 py-3 rounded-lg text-base hover:bg-purple-500 w-auto min-w-0">Bootstrap</button>
-            <button class="bg-gray-400 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-500 w-auto min-w-0">jQuery</button>
-            <button class="bg-blue-300 text-white px-6 py-3 rounded-lg text-base hover:bg-blue-400 w-auto min-w-0">MySQL</button>
-            <button class="bg-black text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">GitHub</button>
-            <button class="bg-gray-700 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-900 w-auto min-w-0">Notion</button>
-            <button class="bg-orange-400 text-white px-6 py-3 rounded-lg text-base hover:bg-orange-500 w-auto min-w-0">Figma</button>
+            <button class="bg-yellow-500 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-yellow-600 w-auto min-w-0 mt-4">JavaScript</button>
+            <button class="bg-green-600 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-green-700 w-auto min-w-0">HTML</button>
+            <button class="bg-blue-600 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-blue-700 w-auto min-w-0">CSS</button>
+            <button class="bg-green-400 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-green-500 w-auto min-w-0">Node.js</button>
+            <button class="bg-gray-500 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-gray-600 w-auto min-w-0">Express.js</button>
+            <button class="bg-sky-600 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-sky-700 w-auto min-w-0">React</button>
+            <button class="bg-cyan-500 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-cyan-600 w-auto min-w-0">Tailwind CSS</button>
+            <button class="bg-green-500 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-green-600 w-auto min-w-0">Supabase</button>
+            <button class="bg-black font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">Vercel</button>
+            <button class="bg-purple-400 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-purple-500 w-auto min-w-0">Bootstrap</button>
+            <button class="bg-gray-400 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-gray-500 w-auto min-w-0">jQuery</button>
+            <button class="bg-blue-300 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-blue-400 w-auto min-w-0">MySQL</button>
+            <button class="bg-black font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-gray-800 w-auto min-w-0">GitHub</button>
+            <button class="bg-gray-700 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-gray-900 w-auto min-w-0">Notion</button>
+            <button class="bg-orange-400 font-bold text-white px-6 py-3 rounded-lg text-base hover:bg-orange-500 w-auto min-w-0">Figma</button>
         </div>
     </div>
 </section>
@@ -199,32 +209,123 @@
 <section id="projects" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Project 1</h3>
-                <p class="text-gray-600 mb-4">프로젝트 설명: 미니프로젝트</p>
-                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Project 2</h3>
-                <p class="text-gray-600 mb-4">프로젝트 설명: 데이터 분석 대시보드...</p>
-                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Project 3</h3>
-                <p class="text-gray-600 mb-4">프로젝트 설명: 모바일 친화적 UI...</p>
-                <a href="" class="text-blue-600 hover:underline">자세히 보기</a>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-list">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="modal-close" aria-label="모달 닫기">&times;</span>
+            <img id="modal-image" src="" alt="프로젝트 이미지" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
+            <p id="modal-tech" class="text-gray-600 mb-2"></p>
+            <p id="modal-date" class="text-gray-600 mb-4"></p>
+            <p id="modal-description" class="text-gray-700"></p>
+            <a id="modal-link" href="" class="text-blue-600 hover:underline" target="_blank">자세히 보기</a>
         </div>
     </div>
 </section>
 
 <script>
+    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        navMenu.classList.toggle('hidden');
+        navMenu.classList.toggle('flex');
+        navMenu.classList.toggle('flex-col');
+        navMenu.classList.toggle('absolute');
+        navMenu.classList.toggle('top-16');
+        navMenu.classList.toggle('left-0');
+        navMenu.classList.toggle('w-full');
+        navMenu.classList.toggle('bg-white');
+        navMenu.classList.toggle('p-4');
+    });
+
+    // Project data
+    const projects = [
+        {
+            title: "미니프로젝트",
+            tech: "React, Tailwind CSS, Supabase",
+            date: "2025-01",
+            description: "사용자 맞춤형 미니 애플리케이션으로, 간단한 작업을 자동화하고 사용자 경험을 개선했습니다.",
+            image: "./images/project1.jpg",
+            link: "https://github.com/yourusername/mini-project"
+        },
+        {
+            title: "데이터 분석 대시보드",
+            tech: "Node.js, Express, MySQL, Chart.js",
+            date: "2024-11",
+            description: "실시간 데이터 시각화를 제공하는 대시보드로, 비즈니스 인사이트를 도출합니다.",
+            image: "./images/project2.jpg",
+            link: "https://github.com/yourusername/dashboard"
+        },
+        {
+            title: "모바일 친화적 UI",
+            tech: "React, Tailwind CSS, Figma",
+            date: "2024-09",
+            description: "모바일 우선 디자인을 적용한 반응형 웹 애플리케이션입니다.",
+            image: "./images/project3.jpg",
+            link: "https://github.com/yourusername/mobile-ui"
+        }
+    ];
+
+    // Render projects
+    const projectList = document.getElementById('project-list');
+    projects.forEach((project, index) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'bg-white p-6 rounded-lg shadow-md project-card cursor-pointer';
+        projectCard.setAttribute('data-index', index);
+        projectCard.innerHTML = `
+            <img src="${project.image}" alt="${project.title}" class="project-img mb-4">
+            <h3 class="text-xl font-semibold mb-2">${project.title}</h3>
+            <p class="text-gray-600 mb-2"><strong>기술:</strong> ${project.tech}</p>
+            <p class="text-gray-600 mb-4"><strong>날짜:</strong> ${project.date}</p>
+        `;
+        projectList.appendChild(projectCard);
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('project-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalTech = document.getElementById('modal-tech');
+    const modalDate = document.getElementById('modal-date');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    const modalClose = document.querySelector('.modal-close');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const index = card.getAttribute('data-index');
+            const project = projects[index];
+            modalImage.src = project.image;
+            modalTitle.textContent = project.title;
+            modalTech.textContent = `기술: ${project.tech}`;
+            modalDate.textContent = `날짜: ${project.date}`;
+            modalDescription.textContent = project.description;
+            modalLink.href = project.link;
+            modal.style.display = 'flex';
+        });
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Keyboard accessibility for modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+        }
     });
 </script>
 </body>

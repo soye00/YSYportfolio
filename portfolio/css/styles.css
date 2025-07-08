@@ -1,0 +1,50 @@
+.hamburger {
+    display: none;
+}
+.nav-menu {
+    display: flex;
+}
+.info-title{
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem;
+}
+@keyframes dropDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.drop-animation {
+    animation: dropDown 1s ease forwards;
+}
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-menu {
+        display: none;
+    }
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .info-title{
+        font-size: 1.4rem;
+    }
+    .info-txt{
+        font-size: 0.8rem !important;
+    }
+
+}
