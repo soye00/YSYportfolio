@@ -5,64 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>윤소연 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 모달 스타일 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 50;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            max-width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            animation: slideIn 0.3s ease-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        .project-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .project-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-        @media (max-width: 768px) {
-            .modal-content {
-                max-width: 95%;
-                padding: 1.5rem;
-            }
-            .project-img {
-                height: 150px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 
 <body class="font-sans bg-gray-100">
@@ -192,10 +136,14 @@
 <section id="archiving" class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8 text-center">Archiving</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="bg-gray-100 p-6 rounded-lg shadow-md">
                 <h3 class="text-xl font-semibold mb-2">GitHub</h3>
                 <p class="text-gray-600">: <a href="" class="text-blue-600 hover:underline">소연깃허브</a></p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Notion</h3>
+                <p class="text-gray-600">: <a href="" class="text-blue-600 hover:underline">소연노션</a></p>
             </div>
             <div class="bg-gray-100 p-6 rounded-lg shadow-md">
                 <h3 class="text-xl font-semibold mb-2">Notion</h3>
@@ -210,7 +158,7 @@
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-list">
-            <!-- Projects will be dynamically inserted here -->
+            <!-- 프로젝트 넣을   -->
         </div>
     </div>
     <!-- Modal -->
@@ -228,7 +176,7 @@
 </section>
 
 <script>
-    // Hamburger menu toggle
+    // 햄버거
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -244,14 +192,14 @@
         navMenu.classList.toggle('p-4');
     });
 
-    // Project data
+    // 프로젝트 정보
     const projects = [
         {
-            title: "미니프로젝트",
-            tech: "React, Tailwind CSS, Supabase",
+            title: "미니프로젝트 - 가계부 어플 제작",
+            tech: "HTML5, CSS3",
             date: "2025-01",
             description: "사용자 맞춤형 미니 애플리케이션으로, 간단한 작업을 자동화하고 사용자 경험을 개선했습니다.",
-            image: "./images/project1.jpg",
+            image: "./images/p1.png",
             link: "https://github.com/yourusername/mini-project"
         },
         {
@@ -259,7 +207,7 @@
             tech: "Node.js, Express, MySQL, Chart.js",
             date: "2024-11",
             description: "실시간 데이터 시각화를 제공하는 대시보드로, 비즈니스 인사이트를 도출합니다.",
-            image: "./images/project2.jpg",
+            image: "./images/p2.png",
             link: "https://github.com/yourusername/dashboard"
         },
         {
@@ -267,7 +215,31 @@
             tech: "React, Tailwind CSS, Figma",
             date: "2024-09",
             description: "모바일 우선 디자인을 적용한 반응형 웹 애플리케이션입니다.",
-            image: "./images/project3.jpg",
+            image: "./images/p3.png",
+            link: "https://github.com/yourusername/mobile-ui"
+        },
+        {
+            title: "모바일 친화적 UI",
+            tech: "React, Tailwind CSS, Figma",
+            date: "2024-09",
+            description: "모바일 우선 디자인을 적용한 반응형 웹 애플리케이션입니다.",
+            image: "./images/p4.png",
+            link: "https://github.com/yourusername/mobile-ui"
+        },
+        {
+            title: "모바일 친화적 UI",
+            tech: "React, Tailwind CSS, Figma",
+            date: "2024-09",
+            description: "모바일 우선 디자인을 적용한 반응형 웹 애플리케이션입니다.",
+            image: "./images/p5.png",
+            link: "https://github.com/yourusername/mobile-ui"
+        },
+        {
+            title: "모바일 친화적 UI",
+            tech: "React, Tailwind CSS, Figma",
+            date: "2024-09",
+            description: "모바일 우선 디자인을 적용한 반응형 웹 애플리케이션입니다.",
+            image: "./images/p6.png",
             link: "https://github.com/yourusername/mobile-ui"
         }
     ];
@@ -287,7 +259,7 @@
         projectList.appendChild(projectCard);
     });
 
-    // Modal functionality
+    // 모달 동작
     const modal = document.getElementById('project-modal');
     const modalImage = document.getElementById('modal-image');
     const modalTitle = document.getElementById('modal-title');
@@ -321,7 +293,7 @@
         }
     });
 
-    // Keyboard accessibility for modal
+    // 모달 키보드
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'flex') {
             modal.style.display = 'none';
