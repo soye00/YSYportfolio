@@ -168,18 +168,41 @@
     height: 24px;
     color: #6b7280;
 }
+#projects{
+    padding : 4rem 4rem 10rem 4rem;
+}
 
 /* 푸터 */
 footer {
     background-color: #121419;
-    padding: 2rem 0;
+    padding: 4rem 0;
     text-align: center;
     color: #4b5563;
     font-size: 0.875rem;
     border-top: 1px solid #e5e7eb;
+    position: relative;
 }
 footer p {
     margin: 0;
+}
+.thanks {
+    position: absolute;
+    top: -90px;
+    width:100%;
+    z-index: 1;
+    /*overflow: hidden;*/
+    height: 95px;
+}
+@keyframes thanks {
+    0% { left: 100% }
+    100% { left: -50% }
+}
+.thanks img{
+    width : 6rem;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    animation: thanks 12s linear infinite;
 }
 
 /* 반응형 스타일 */
@@ -241,8 +264,11 @@ footer p {
         width: 20px;
         height: 20px;
     }
+    #projects {
+        padding : 4rem 1rem 10rem;
+    }
     footer {
-        padding: 1rem 0;
+        padding: 2rem 0;
         font-size: 0.8rem;
     }
 }
