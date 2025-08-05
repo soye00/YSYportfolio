@@ -246,7 +246,7 @@ projects.forEach((project, index) => {
     projectCard.className = 'bg-white p-6 rounded-lg shadow-md project-card flex flex-col items-start';
     projectCard.setAttribute('data-index', index);
     projectCard.innerHTML = `
-            <img src="${project.images[0]}" alt="${project.title}" class="project-img mb-4 w-full h-40 object-cover rounded">
+            <img src="${project.images[0]}" alt="${project.title}" class="project-img mb-4 w-full h-40 object-cover rounded" loading="lazy">
             <h3 class="text-xl font-bold mb-1 text-left w-full">${project.title}</h3>
             <div class="mb-1 text-left w-full text-gray-700">${project.date}</div>
             <div class="mb-2 text-left w-full text-gray-800">${project.summary}</div>
