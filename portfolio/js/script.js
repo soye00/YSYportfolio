@@ -23,11 +23,12 @@ const projects = [
     {
         title: "개인 포트폴리오 웹 사이트",
         date: "2025.07 (1명)",
-        summary: `<ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.5rem">
+        summary: `
+                <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.5rem">
                 <li>HTML, Tailwind CSS, JavaScript를 활용해 반응형 포트폴리오 웹사이트를 직접 설계 및 구현</li>
-                <li>Scroll 이벤트 기반의 맨 위로 이동 버튼, 모달 팝업(README/이미지 슬라이더) 등 다양한 사용자 편의 기능 포함</li>
-                <li>프로젝트 데이터를 JavaScript 객체로 관리하여 동적으로 프로젝트 카드 생성 및 모달 제어 기능 구현</li>                
-                <li>Vercel을 통한 정적 사이트 배포</li>
+                <li>스크롤 이벤트 기반의 맨 위로 이동 버튼, 모달 팝업(README/이미지 슬라이더) 등 다양한 사용자 편의 기능 포함</li>
+                <li>프로젝트 데이터를 객체로 관리하여 동적으로 프로젝트 카드 생성 및 모달 제어 기능 구현</li>                
+                <li>Vercel을 통한 배포</li>
             </ul>`,
         readme: `
                 <h3 class="text-xl font-semibold">💡 주요 기능</h3>
@@ -54,7 +55,7 @@ const projects = [
         summary: `<ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.5rem">
                 <li>Node.js와 Express 기반의 제빙기 청소 예약 서비스 풀스택 개발</li>
                 <li>고객용 서비스의 로그인, 회원가입, 예약 등록·조회·관리 UI 전반을 Nunjucks + Bootstrap으로 구현</li>
-                <li>Supabase를 활용한 사용자/예약 정보 CRUD 및 푸시 알림 구독·전송 기능 구현</li>
+                <li>Supabase를 활용한 사용자/예약 정보 CRUD</li>
                 <li>프론트·백엔드를 직접 설계 및 연결하며 실무 수준의 전체 서비스 흐름을 경험</li>
                 <li>Cloudtype을 통한 서버 배포, GitHub/SourceTree로 협업 및 버전 관리 진행</li>
             </ul>`,
